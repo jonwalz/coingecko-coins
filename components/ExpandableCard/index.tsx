@@ -6,7 +6,7 @@ import { ExpandableCardButton, ExpandableCardTitle } from './styles'
 
 interface Card {
   children: React.ReactNode
-  title: string
+  title: React.ReactNode
   isExpanded: boolean
   handleOnExpand: () => void
 }
@@ -32,13 +32,15 @@ export const ExpandableCard: React.FC<Card> = ({
 }) => {
   return (
     <Card>
-      <ExpandableCardButton
-        variant={ButtonVariant['primary']}
-        onClick={handleOnExpand}
-      >
-        <ExpandableCardTitle>{title}</ExpandableCardTitle>
-        {String.fromCharCode(isExpanded ? 9650 : 9660)}
-      </ExpandableCardButton>
+      <ExpandableCardTitle>
+        <span>{title}</span>
+        <ExpandableCardButton
+          variant={ButtonVariant['primary']}
+          onClick={handleOnExpand}
+        >
+          {String.fromCharCode(isExpanded ? 9650 : 9660)}
+        </ExpandableCardButton>
+      </ExpandableCardTitle>
       {isExpanded && <CardContent>{children}</CardContent>}
     </Card>
   )

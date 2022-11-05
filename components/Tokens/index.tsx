@@ -1,9 +1,14 @@
-import { Suspense, lazy, useEffect, useState } from 'react'
+import { Suspense, lazy } from 'react'
 import { ExpandableCard, useExpandableCard } from '../ExpandableCard'
 import { Token } from './constants'
-import { InvisibleIntersection, TokensContainer } from './styles'
-import { Fetcher } from 'swr'
+import {
+  CardTitle,
+  InvisibleIntersection,
+  TitleImage,
+  TokensContainer,
+} from './styles'
 import { useElementOnScreen, usePaginateTokens } from '../Hooks/useFetchTokens'
+import Image from 'next/image'
 
 const Details = lazy(() =>
   import('../TokenDetails').then((module) => ({
@@ -18,8 +23,20 @@ interface TokenProps {
 const Token = ({ tokenData }: TokenProps) => {
   const expandableCardProps = useExpandableCard()
 
+  const cardTitle = (
+    <CardTitle>
+      <TitleImage
+        width={30}
+        height={30}
+        src={tokenData.image}
+        alt={`Image of token ${tokenData.name}`}
+      />
+      <p>{tokenData.name}</p>
+    </CardTitle>
+  )
+
   return (
-    <ExpandableCard title={tokenData.name} {...expandableCardProps}>
+    <ExpandableCard title={cardTitle} {...expandableCardProps}>
       <Suspense fallback={'Loading...'}>
         <Details tokenData={tokenData} />
       </Suspense>
