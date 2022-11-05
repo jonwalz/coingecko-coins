@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 
 export const ButtonPrimary = styled.button`
-  background-color: var(--secondary);
+  background-color: var(--color-white-1);
   border: none;
 `
 

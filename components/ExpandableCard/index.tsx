@@ -1,8 +1,7 @@
 import { useState } from 'react'
-import { ButtonVariant } from '../Button'
 import { Card } from '../Card'
 import { CardContent } from '../Card/styles'
-import { ExpandableCardButton, ExpandableCardTitle } from './styles'
+import { ExpandableCardTitle } from './styles'
 
 interface Card {
   children: React.ReactNode
@@ -32,14 +31,9 @@ export const ExpandableCard: React.FC<Card> = ({
 }) => {
   return (
     <Card>
-      <ExpandableCardTitle>
-        <span>{title}</span>
-        <ExpandableCardButton
-          variant={ButtonVariant['primary']}
-          onClick={handleOnExpand}
-        >
-          {String.fromCharCode(isExpanded ? 9650 : 9660)}
-        </ExpandableCardButton>
+      <ExpandableCardTitle as="button" onClick={handleOnExpand}>
+        {title}
+        {String.fromCharCode(isExpanded ? 9650 : 9660)}
       </ExpandableCardTitle>
       {isExpanded && <CardContent>{children}</CardContent>}
     </Card>
