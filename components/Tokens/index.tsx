@@ -22,13 +22,14 @@ interface TokenProps {
 
 const Token = ({ tokenData }: TokenProps) => {
   const expandableCardProps = useExpandableCard()
+  const imageUrl = new URL(tokenData.image)
 
   const cardTitle = (
     <CardTitle>
       <TitleImage
         width={30}
         height={30}
-        src={tokenData.image}
+        src={`${imageUrl.origin}${imageUrl.pathname}`}
         alt={`Image of token ${tokenData.name}`}
       />
       <p>{tokenData.name}</p>
