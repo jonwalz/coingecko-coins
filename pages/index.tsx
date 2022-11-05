@@ -1,10 +1,8 @@
 import Head from 'next/head'
-import { ExpandableCard, useExpandableCard } from '../components/ExpandableCard'
 import { Layout } from '../components/Layout'
+import { Tokens } from '../components/Tokens'
 
 export default function Home() {
-  const expandableCardProps = useExpandableCard()
-
   return (
     <>
       <Head>
@@ -13,10 +11,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout title="Coin">
-        <ExpandableCard title="Something" {...expandableCardProps}>
-          CoinGecko Coins
-        </ExpandableCard>
-        <footer>Jon Walz</footer>
+        <Tokens />
+        <footer>Jon Walz 2022</footer>
       </Layout>
     </>
   )

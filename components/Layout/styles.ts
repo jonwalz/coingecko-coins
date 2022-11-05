@@ -1,6 +1,16 @@
 import styled from '@emotion/styled'
 
+export const LayoutContainer = styled.main`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+`
+
 export const LayoutContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
   padding: var(--scale-1);
 `
 

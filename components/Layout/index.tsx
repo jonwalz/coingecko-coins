@@ -1,4 +1,4 @@
-import { LayoutContent, LayoutTitle, Title } from './styles'
+import { LayoutContainer, LayoutContent, LayoutTitle, Title } from './styles'
 
 interface LayoutProps {
   children: React.ReactNode
@@ -7,13 +7,13 @@ interface LayoutProps {
 
 export const Layout = ({ children, title }: LayoutProps) => {
   return (
-    <>
+    <LayoutContainer>
       {title && (
         <LayoutTitle>
           <Title>{title}</Title>
         </LayoutTitle>
       )}
       <LayoutContent>{children}</LayoutContent>
-    </>
+    </LayoutContainer>
   )
 }

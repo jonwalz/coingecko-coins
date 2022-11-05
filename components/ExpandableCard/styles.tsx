@@ -12,6 +12,7 @@ export const ExpandableCardButton = styled(Button)`
   width: 100%;
   justify-content: space-between;
   padding-left: 0;
+  padding-right: 0;
 
   &:hover {
     background-color: var(--color-gray-1);

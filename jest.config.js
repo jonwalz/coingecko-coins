@@ -16,7 +16,7 @@ const customJestConfig = {
     '!**/vendor/**',
   ],
   coveragePathIgnorePatterns: [
-    "jest.config.js"
+    'jest.config.js'
   ],
   setupFilesAfterEnv: [
     "<rootDir>/setupTests.js"
