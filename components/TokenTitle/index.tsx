@@ -1,5 +1,5 @@
 import { FunctionComponent } from 'react'
-import { Token } from '../Tokens/constants'
+import { IToken } from '../Tokens/constants'
 import { CardTitle, Name, Price, PricePercent, TitleImage } from './styles'
 
 const PriceChange = ({ priceChange }: { priceChange: number }) => {
@@ -11,7 +11,7 @@ const PriceChange = ({ priceChange }: { priceChange: number }) => {
 }
 
 interface TokenTitleProps {
-  tokenData: Token
+  tokenData: IToken
 }
 
 const TokenTitle: FunctionComponent<TokenTitleProps> = ({ tokenData }) => {

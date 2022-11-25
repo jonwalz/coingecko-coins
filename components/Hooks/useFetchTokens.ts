@@ -1,7 +1,7 @@
-import { useState, useRef, useEffect } from 'react'
-import useSWR, { Fetcher } from 'swr'
+import { useRef, useEffect } from 'react'
+import { Fetcher } from 'swr'
 import useSWRInfinite from 'swr/infinite'
-import { Token } from '../Tokens/constants'
+import { IToken } from '../Tokens/constants'
 
 export const useElementOnScreen = (
   callback: () => void,
@@ -30,11 +30,11 @@ export const useElementOnScreen = (
 
 const URL = 'https://api.coingecko.com/api/v3/coins/markets'
 
-const fetcher: Fetcher<Token[], string> = (...args) =>
+const fetcher: Fetcher<IToken[], string> = (...args) =>
   fetch(...args).then((res) => res.json())
 
 export const usePaginateTokens = () => {
-  const { data, error, size, setSize, isValidating } = useSWRInfinite<Token[]>(
+  const { data, error, size, setSize, isValidating } = useSWRInfinite<IToken[]>(
     (pageIndex, previousPageData: []) => {
       if (previousPageData && !previousPageData.length) return null
 
@@ -43,7 +43,7 @@ export const usePaginateTokens = () => {
         page: String(pageIndex + 1),
         order: 'market_cap_desc',
         per_page: String(100),
-        sparkline: 'true',
+        sparkline: 'false',
         price_change_percentage: '7d',
       }
 
@@ -60,7 +60,7 @@ export const usePaginateTokens = () => {
 
   const isRefreshing = isValidating && data && data.length === size
 
-  const history: Token[] = []
+  const history: IToken[] = []
   const tokens = data ? history.concat(...data) : []
 
   return {

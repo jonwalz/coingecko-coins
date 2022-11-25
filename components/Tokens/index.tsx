@@ -1,6 +1,6 @@
 import { Suspense, lazy } from 'react'
 import { ExpandableCard, useExpandableCard } from '../ExpandableCard'
-import { Token } from './constants'
+import { IToken } from './constants'
 import { InvisibleIntersection, TokensContainer } from './styles'
 import { useElementOnScreen, usePaginateTokens } from '../Hooks/useFetchTokens'
 import TokenTitle from '../TokenTitle'
@@ -12,7 +12,7 @@ const Details = lazy(() =>
 )
 
 interface TokenProps {
-  tokenData: Token
+  tokenData: IToken
 }
 
 const Token = ({ tokenData }: TokenProps) => {
