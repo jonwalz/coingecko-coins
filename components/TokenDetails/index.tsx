@@ -1,10 +1,10 @@
-import { Chart } from '../Chart'
-import { IToken } from '../Tokens/constants'
-import { TokenDetailsContainer } from './styles'
-import ParentSize from '@visx/responsive/lib/components/ParentSize'
+import { Chart } from "../Chart";
+import { IToken } from "../Tokens/constants";
+import { TokenDetailsContainer, TokenInfo, TokenSection } from "./styles";
+import ParentSize from "@visx/responsive/lib/components/ParentSize";
 
 interface TokenDetailsProps {
-  tokenData: IToken
+  tokenData: IToken;
 }
 
 export const TokenDetails = ({ tokenData }: TokenDetailsProps) => {
@@ -15,7 +15,17 @@ export const TokenDetails = ({ tokenData }: TokenDetailsProps) => {
           <Chart tokenId={tokenData.id} width={width} height={height} />
         )}
       </ParentSize>
-      Details: {tokenData.name}
+      <TokenInfo>
+        <TokenSection>
+          <b>Name:</b>&nbsp;{tokenData.name}
+        </TokenSection>
+        <TokenSection>
+          <b>Current price:</b>&nbsp;${tokenData.current_price}
+        </TokenSection>
+        <TokenSection>
+          <b>Market cap:</b>&nbsp;${tokenData.market_cap}
+        </TokenSection>
+      </TokenInfo>
     </TokenDetailsContainer>
-  )
-}
+  );
+};
