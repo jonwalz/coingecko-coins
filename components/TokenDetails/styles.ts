@@ -7,6 +7,7 @@ export const TokenDetailsContainer = styled.div`
 export const TokenInfo = styled.div`
   display: flex;
   flex-direction: column;
+  flex: 1;
 `;
 
 export const TokenSection = styled.div`

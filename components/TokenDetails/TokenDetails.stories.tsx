@@ -1,8 +1,23 @@
+import { StoryFn } from "@storybook/react";
 import { TokenDetails } from ".";
+import styled from "@emotion/styled";
+
+const Container = styled.div`
+  margin: 0 auto;
+  border: 2px solid black;
+  border-radius: 6px;
+`;
 
 export default {
   name: "Token Details",
   component: TokenDetails,
+  decorators: [
+    (Story: StoryFn) => (
+      <Container>
+        <Story />
+      </Container>
+    ),
+  ],
 };
 
 const defaultProps = {

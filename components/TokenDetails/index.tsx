@@ -10,7 +10,7 @@ interface TokenDetailsProps {
 export const TokenDetails = ({ tokenData }: TokenDetailsProps) => {
   return (
     <TokenDetailsContainer>
-      <ParentSize>
+      <ParentSize parentSizeStyles={{ flex: 3 }}>
         {({ width, height }) => (
           <Chart tokenId={tokenData.id} width={width} height={height} />
         )}
